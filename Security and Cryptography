@@ -1,0 +1,34 @@
+Entropy
+the entropy is equal to log_2(# of possibilities). A fair coin flip gives 1 bit of entropy. A dice roll (of a 6-sided die) has ~2.58 bits of entropy.
+
+Hash functions
+hash(value: array<byte>) -> vector<byte, N>  (for some fixed N)
+An example of a hash function is SHA1, which is used in Git. It maps arbitrary-sized inputs to 160-bit outputs (which can be represented as 40 hexadecimal characters)
+
+sha1sum command:
+$ printf 'hello' | sha1sum
+aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
+$ printf 'hello' | sha1sum
+aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
+$ printf 'Hello' | sha1sum
+f7ff9e8b7bb2e09b70935a5d785e0cc5d9d0abf0
+
+
+Key derivation functions
+are used for a number of applications, including producing fixed-length output for use as keys in other cryptographic algorithms. Usually, KDFs are deliberately slow, in order to slow down offline brute-force attacks.
+
+Symmetric cryptography
+keygen() -> key  (this function is randomized)
+encrypt(plaintext: array<byte>, key) -> array<byte>  (the ciphertext)
+decrypt(ciphertext: array<byte>, key) -> array<byte>  (the plaintext)
+salt
+
+
+Asymmetric cryptography
+keygen() -> (public key, private key)  (this function is randomized)
+
+encrypt(plaintext: array<byte>, public key) -> array<byte>  (the ciphertext)
+decrypt(ciphertext: array<byte>, private key) -> array<byte>  (the plaintext)
+
+sign(message: array<byte>, private key) -> array<byte>  (the signature)
+verify(message: array<byte>, signature: array<byte>, public key) -> bool  (whether or not the signature is valid)
